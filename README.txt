@@ -1,3 +1,4 @@
+^#Jest
 Jest provides the two key ingredients needed for testing:
 
 An assertion library – an API of functions for validating a program’s functionality
@@ -46,3 +47,33 @@ We aren’t concerned about whether the third-party API works. Instead, we only 
 Incorporating REST API calls into our tests can create fragile tests that may fail simply due to network issues.
 If we were interacting with a production-grade database, we could accidentally alter official data.
 We put mocks functions in __mocks__ folder
+
+#######
+
+#RTL: React Testing Library
+React Testing Library focuses on testing components from the end-user’s experience rather than testing the implementation and logic of the underlying React components.
+We can import the two essential values, render and screen, into our tests.
+
+render() is a function that we can use to virtually render components and make them available in our unit tests.
+ 1. Similar to ReactDOM.render(), RTL’s render() function takes in JSX as an argument.
+ 2. screen is a special object which can be thought of as a representation of the browser window.
+    We can make sure that our virtually rendered components are available in the test by using the screen.debug() method which prints out all the DOM contents.
+
+To test dom assertion we should use jest dom package
+
+Querying
+There are a number of .getByX query methods to choose from and they are all accessible as methods on the screen object.
+Other querying methods are .queryByX and .findByX. 
+The .queryByX methods return null if they don’t find a DOM node, unlike the .getByX methods which throw an error and immediately cause the test to fail. This is useful when asserting that an element is NOT present in the DOM.
+The .findByX methods are used to query for asynchronous elements which will eventually appear in the DOM. For example, if the user is waiting for the result of an API call to resolve before data is displayed. The .findByX methods work by returning a Promise which resolves when the queried element renders in the DOM. As such, the async/await keywords can be used to enable asynchronous logic.
+
+Mimicking User Interactions
+Mimic user interactions e.g. clicking a checkbox, typing text, etc. 
+Syntax pattern
+userEvent.interactionType(nodeToInteractWith);
+
+The waitFor() method
+For components that disappear asynchronously.
+The waitFor() method can also optionally accept an options object as a second argument. This object can be used to control how long to wait for before aborting and much more.
+
+

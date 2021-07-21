@@ -4,7 +4,7 @@ import {
     countryExtractor,
     countryListLookup, 
     getResponse 
-  } from '../language_spoken.js';
+  } from '../../language_spoken.js';
 import httpRequest from '../utils/http-request';
 
 jest.mock('../utils/http-request');
