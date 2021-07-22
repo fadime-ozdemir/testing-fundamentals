@@ -1,4 +1,4 @@
-^#Jest
+# Jest
 Jest provides the two key ingredients needed for testing:
 
 An assertion library – an API of functions for validating a program’s functionality
@@ -48,9 +48,8 @@ Incorporating REST API calls into our tests can create fragile tests that may fa
 If we were interacting with a production-grade database, we could accidentally alter official data.
 We put mocks functions in __mocks__ folder
 
-#######
 
-#RTL: React Testing Library
+# RTL: React Testing Library
 React Testing Library focuses on testing components from the end-user’s experience rather than testing the implementation and logic of the underlying React components.
 We can import the two essential values, render and screen, into our tests.
 
